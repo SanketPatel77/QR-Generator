@@ -1,7 +1,14 @@
 const text = document.getElementById("qrText");
 const img = document.getElementById("qrImage");
 const imgBox = document.querySelector(".imgBox");
-function generateQR(params) {
+
+text.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    generateQR();
+  }
+});
+
+function generateQR() {
   if (text.value.length > 0) {
     img.src =
       " https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +
